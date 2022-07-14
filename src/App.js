@@ -32,7 +32,7 @@ function App() {
   console.log(token);
   return (
     <div className="App">
-      {token ? <Player /> : <Login />}
+      {token ? <Player spotify={spotify}/> : <Login />}
     </div>
   );
 }

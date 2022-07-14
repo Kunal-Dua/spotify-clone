@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Player = () => {
+const Player = ({spotify}) => {
   return (
     <div>Player</div>
   )
