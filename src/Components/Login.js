@@ -1,5 +1,5 @@
 import React from 'react'
-import "./Login.css"
+import "./CSS/Login.css"
 import {loginUrl} from '../spotify_login_url';
 import spotify_logo from '../img/Spotify_Logo_RGB_Green-768x231.png'
 

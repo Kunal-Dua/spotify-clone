@@ -1,0 +1,16 @@
+.Sidebar_Option {
+    display: flex;
+    color: gray;
+    height: 35px;
+    cursor: pointer;
+    align-items: center;
+}
+
+.Sidebar_Option:hover {
+    color: white;
+}
+
+.sidebarOption_icon {
+    margin-left: 20px;
+    margin-right: 10px;
+}
