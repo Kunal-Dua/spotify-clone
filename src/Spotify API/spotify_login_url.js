@@ -5,7 +5,11 @@ const scope = [
     "user-modify-playback-state",
     "user-read-playback-state",
     "user-read-currently-playing",
-    "user-read-recently-played"
+    "user-read-recently-played",
+    "playlist-read-collaborative",
+    "playlist-modify-public",
+    "playlist-read-private",
+    "playlist-modify-private"
 ]
 
 export const getTokenFromUrl = () => {
