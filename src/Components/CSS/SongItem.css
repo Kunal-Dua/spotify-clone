@@ -4,22 +4,51 @@
     align-items: center;
     margin-left:20px;
     margin-top: 20px;
+    justify-content: space-between;
+}
+
+.content_box2{
+    display: flex;
+}
+
+.content_box1{
+    display: flex;
+}
+
+.song_num{
+    margin-right: 75px;
 }
 
 .song_img{
     height: 50px;
 }
 
-.song_info{
+.song_album{
+    margin-left: 100px;
+    margin-right: 120px;
+    max-width: 200px;
+}
+
+.song_title{
     margin-top: 10px;
     margin-left: 15px;
     align-items: center;
 }
 
-.song_info > p{
+.song_added{
+    margin-right: 120px;
+
+}
+
+.song_duration{
+    margin-right: 270px;
+    margin-left: 70px;
+}
+
+.song_title > p{
     font-size: 12px;
 }
 
-.song_info > h4{
+.song_title > h4{
     font-size: 16px;
 }

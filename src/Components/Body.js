@@ -4,6 +4,7 @@ import Header from './Header'
 import './CSS/Body.css'
 import Song_Control from './Song_Control'
 import Songs from './Songs'
+import Song_nav from './Song_nav'
 const Body = () => {
   return (
     <div className='body'>
@@ -11,6 +12,7 @@ const Body = () => {
       <div id="i" className="body_content">
         <div className="banner"><Banner /></div>
         <div className="song_control"><Song_Control /></div>
+        <div className="Song_nav"><Song_nav /></div>
         <div className="songs"><Songs /></div>
       </div>
     </div>
