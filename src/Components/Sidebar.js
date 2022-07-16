@@ -18,9 +18,9 @@ const Sidebar = () => {
       <Sidebar_Option title="Search" Icon={SearchIcon} />
       <Sidebar_Option title="Your Libary " Icon={LibraryMusicIcon} />
 
+      <br />
       <strong className="sidebar_title">Playlists</strong>
       <hr />
-
       <div className='playlist_options'>
 
       {playlists?.items?.map(playlist => (
