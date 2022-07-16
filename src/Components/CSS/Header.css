@@ -1,0 +1,27 @@
+.header{
+    position: fixed;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+    flex: 0.2;
+}
+
+.header_left{
+    display: flex;
+    flex: 0.4;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.header_left_btn{
+    margin: 0px 5px;
+}
+
+.header_right{
+    display: flex;
+    flex: 0.6;
+    align-items: center;
+
+}
