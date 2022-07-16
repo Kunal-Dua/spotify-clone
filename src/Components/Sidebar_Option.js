@@ -5,7 +5,7 @@ const Sidebar_Option = ({ title, Icon }) => {
     return (
         <div className='Sidebar_Option'>
             {Icon && <Icon className="sidebarOption_icon" />}
-            {Icon ? <h5> {title}</h5> : <p> {title}</p>}
+            {Icon ? <h6> {title}</h6> : <p> {title}</p>}
         </div>
     )
 }

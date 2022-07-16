@@ -1,6 +1,6 @@
 .Sidebar_Option {
     display: flex;
-    color: gray;
+    color: rgb(175, 175, 175);
     height: 35px;
     cursor: pointer;
     align-items: center;

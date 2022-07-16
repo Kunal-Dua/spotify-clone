@@ -1,7 +1,35 @@
-.footer{
+.footer {
     position: fixed;
     bottom: 0;
     width: 100%;
     height: 65px;
+    display: flex;
     background-color: rgb(71, 71, 71);
+    justify-content: space-between;
+    padding: 10px;
+
+}
+
+.footer_left {
+    flex: 0.3;
+}
+
+.footer_center {
+    display: flex;
+    justify-content: space-between;
+    flex: 0.4;
+    padding: 0px 100px;
+    color: white;
+    align-items: center;
+    max-width: 400px;
+}
+
+
+.footer_right {
+    flex: 0.3;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    align-items: center;
+    max-width: 300px;
 }
