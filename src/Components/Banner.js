@@ -8,12 +8,12 @@ const Banner = () => {
   let type = discover_weekly?.type;
   let name = discover_weekly?.name;
   let description = discover_weekly?.description;
-  let cover = discover_weekly?.images[0].url;
+  // let cover = discover_weekly?.images[0].url;
 
   return (
     <div className='Banner'>
       <div className="weekly_banner">
-        <img src={cover ? cover : weekly_banner} alt="weekly discover banner" />
+        <img src={discover_weekly?.images[0].url} alt="weekly discover banner" />
         <div className="weekly_banner_info">
           <p><strong>{type ? type.toUpperCase() : "unknown"}</strong></p>
           <h5>{name ? name : "Artist"}</h5>

@@ -3,6 +3,7 @@ import Footer from './Footer'
 import Sidebar from './Sidebar'
 import Body from "./Body";
 import './CSS/Player.css'
+
 const Player = ({ spotify }) => {
   return (
     <div className="player">

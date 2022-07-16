@@ -35,18 +35,18 @@ function App() {
         })
       });
 
-      spotify.getPlaylist('37i9dQZF1DWYxszLYIyBAv').then((response) =>
+      spotify.getPlaylist('37i9dQZF1DX3VNFqEPdDGw').then((response) =>
         dispatch({
           type: 'SET_DISCOVER_WEEKLY',
           discover_weekly: response
-        })
+        }) 
       )
     };
 
   }, [])
 
-  console.log(user);
-  console.log(playlists);
+  // console.log(user);
+  // console.log(playlists);
   console.log(discover_weekly);
 
   return (

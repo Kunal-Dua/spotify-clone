@@ -9,7 +9,7 @@ const Body = () => {
   return (
     <div className='body'>
       <div className="header"><Header /></div>
-      <div id="i" className="body_content">
+      <div className="body_content">
         <div className="banner"><Banner /></div>
         <div className="song_control"><Song_Control /></div>
         <div className="Song_nav"><Song_nav /></div>
