@@ -1,0 +1,23 @@
+.Banner {
+    padding: 10px;
+}
+
+.weekly_banner {
+    display: flex;
+    align-items: flex-end;
+    padding: 10px;
+}
+
+.weekly_banner>img {
+    height: 30vh;
+    margin: 0px 20px;
+    box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
+}
+
+.weekly_banner_info{
+    flex:1;
+}
+
+.weekly_banner_info > p{
+    font-size: 15px;
+}

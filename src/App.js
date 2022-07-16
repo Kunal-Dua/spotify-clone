@@ -37,7 +37,7 @@ function App() {
     }
   }, [])
   
-  console.log(token);
+  console.log(user);
   console.log(playlists);
 
   return (

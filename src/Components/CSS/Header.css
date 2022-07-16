@@ -23,5 +23,7 @@
     display: flex;
     flex: 0.6;
     align-items: center;
-
+}
+.header_right > h5{
+    margin-left: 8px;
 }

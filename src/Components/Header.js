@@ -13,8 +13,8 @@ const Header = () => {
                 <ArrowForwardIosIcon className="header_left_btn" />
             </div>
             <div className="header_right">
-                <Avatar src={user?.images[0]?.url } alt="Remy Sharp" />
-                <h5>{user.display_name}</h5>
+                <Avatar src={user?.images[0]?.url} alt={user?.display_name} />
+                <h5>{user?.display_name}</h5>
             </div>
         </div>
     )
