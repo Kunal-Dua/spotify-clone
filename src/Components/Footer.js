@@ -45,7 +45,7 @@ const Footer = () => {
             <VolumeDownIcon />
           </Grid>
           <Grid item xs>
-            <Slider className="footer_slider footer_volume_slider"/>
+            <Slider className="footer_slider footer_volume_slider" defaultValue={70}/>
           </Grid>
         </Grid>
       </div>
