@@ -9,7 +9,7 @@ const SongItem = ({ track}) => {
 
             <div className="content_box1">
                 <h4 className="song_num">#</h4>
-                <img className="song_img" src={track.album.images[2].url} alt="song image" />
+                <img className="song_img" src={track.album.images[2].url}/>
                 <div className="song_title">
                     <h4>{track.name}</h4>
                     <p>

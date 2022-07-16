@@ -4,6 +4,7 @@
     color: white;
     padding: 5px;
     background: linear-gradient(rgb(91, 87, 115), rgba(0, 0, 0, 1));
+    overflow-y: overlay;
     height: 100%;
     width: 100vw;
     /* height: 100vh; */
