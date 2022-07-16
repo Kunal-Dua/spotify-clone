@@ -36,6 +36,7 @@ function App() {
       })
     }
   }, [])
+  
   console.log(token);
   console.log(playlists);
 
