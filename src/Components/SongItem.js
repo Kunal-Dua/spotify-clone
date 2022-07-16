@@ -1,11 +1,8 @@
 import React from 'react'
-import { useDataLayerValue } from '../Context/DataLayer';
-import weekly_banner from '../img/spotify song img.jpeg'
 import './CSS/SongItem.css'
 
 const SongItem = ({ track}) => {
-    const [{ discover_weekly }, dispatch] = useDataLayerValue();
-    let duration = track.album.duration_ms;
+    // let duration = track.album.duration_ms;
 
     return (
         <div className='SongItem'>
