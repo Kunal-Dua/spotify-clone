@@ -29,7 +29,7 @@ const Song_Control = () => {
   };
   return (
     <div className='SongControl'>
-      <PlayCircleFilledIcon className='PlayCircleFilledIcon' onClick={playPlaylist} />
+      <PlayCircleFilledIcon className='PlayCircleFilledIcon change-Color-green' onClick={playPlaylist} />
       <FavoriteIcon className='FavoriteIcon' />
       <MoreHorizIcon className='MoreHorizIcon' />
     </div>
