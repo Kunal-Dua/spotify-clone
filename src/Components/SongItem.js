@@ -2,7 +2,7 @@ import React from 'react'
 import { useDataLayerValue, useSpotifyValue } from '../Context/DataLayer';
 import './CSS/SongItem.css'
 
-const SongItem = ({ track, playSong }) => {
+const SongItem = ({ track, playSong ,index}) => {
     const [{ }, dispatch] = useDataLayerValue();
     const { spotify } = useSpotifyValue();
     // let duration = track.album.duration_ms;
@@ -11,7 +11,7 @@ const SongItem = ({ track, playSong }) => {
         <div className='SongItem' onClick={() => playSong(track.id)}>
 
             <div className="c">
-                <h4 className="song_num h">#</h4>
+                <h4 className="song_num h">{index+1}</h4>
                 <img className="song_img p" src={track.album.images[2].url} />
                 <div className="song_title">
                     <h4>{track.name}</h4>

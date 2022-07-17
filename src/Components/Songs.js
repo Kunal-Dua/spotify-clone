@@ -9,8 +9,8 @@ const Songs = ({playSong}) => {
 
   return (
     <div className='songs' >
-      {discover_weekly?.tracks.items.map((item) => (
-        <SongItem track={item.track} playSong={playSong}/>
+      {discover_weekly?.tracks.items.map((item,index) => (
+        <SongItem track={item.track} index={index} playSong={playSong}/>
       ))}
     </div>
   )

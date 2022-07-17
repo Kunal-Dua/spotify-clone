@@ -61,7 +61,7 @@ function App() {
   
   // console.log(id);
   // console.log(token);
-  // console.log(playlists);
+  console.log(playlists);
   // console.log(currentPlaylistID);
   // console.log(discover_weekly);
   // console.log(follows_playlist);
