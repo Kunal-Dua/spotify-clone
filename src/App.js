@@ -7,7 +7,7 @@ import { useDataLayerValue } from './Context/DataLayer';
 import { useSpotify_DOA_value } from './Context/Spotify_DOA';
 
 function App() {
-  const [{ user, token, playlists, discover_weekly }, dispatch] = useDataLayerValue();
+  const [{ user, token, playlists, discover_weekly, item }, dispatch] = useDataLayerValue();
   const { spotify } = useSpotify_DOA_value();
 
   useEffect(() => {
@@ -43,15 +43,15 @@ function App() {
       )
     };
 
-    spotify.setVolume(70);
+    spotify.setVolume(100);
 
   }, [])
 
   // console.log(user);
   // console.log(token);
   // console.log(playlists);
+  // console.log(item);
   // console.log(discover_weekly);
-
 
   return (
     <div className="App">
