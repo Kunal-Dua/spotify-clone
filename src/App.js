@@ -3,10 +3,10 @@ import './App.css';
 import Login from './Components/Login';
 import Player from './Components/Player';
 import { getTokenFromUrl } from './Spotify API/spotify_login_url';
-import { useDataLayerValue,useSpotifyValue } from './Context/DataLayer';
+import { useDataLayerValue, useSpotifyValue } from './Context/DataLayer';
 
 function App() {
-  const [{ user, token, playlists, discover_weekly, item }, dispatch] = useDataLayerValue();
+  const [{ user, token, playlists, discover_weekly, item, id }, dispatch] = useDataLayerValue();
   const { spotify } = useSpotifyValue();
 
   useEffect(() => {
@@ -39,17 +39,23 @@ function App() {
           type: 'SET_DISCOVER_WEEKLY',
           discover_weekly: response
         })
-      )
+      );
+      spotify.getMe().then((response) =>
+        dispatch({
+          type: 'SET_CUURENT_USER_ID',
+          id: response.id
+        })
+      );
     };
 
     spotify.setVolume(100);
 
   }, [])
-
+  
   // console.log(user);
   // console.log(token);
   // console.log(playlists);
-  // console.log(item);
+  console.log(item);
   // console.log(discover_weekly);
 
   return (

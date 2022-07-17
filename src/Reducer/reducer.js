@@ -1,5 +1,6 @@
 export const initialState = {
     user: null,
+    id:null,
     playlists: [],
     playing: false,
     item: null,
@@ -41,6 +42,11 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 playing: action.playing
+            }
+        case 'SET_CUURENT_USER_ID':
+            return {
+                ...state,
+                id: action.id
             }
         default:
             return state;
