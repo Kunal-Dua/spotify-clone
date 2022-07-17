@@ -1,11 +1,10 @@
 import React from 'react'
-import { useDataLayerValue } from '../Context/DataLayer';
-import { useSpotify_DOA_value } from '../Context/Spotify_DOA';
+import { useDataLayerValue, useSpotifyValue} from '../Context/DataLayer';
 import './CSS/Sidebar_Option.css'
 
 const Sidebar_Option = ({ title, Icon, id }) => {
     const [{ }, dispatch] = useDataLayerValue();
-    const { spotify } = useSpotify_DOA_value();
+    const { spotify } = useSpotifyValue();
     const handleClick = () => {
         console.log("playlist changed");
         spotify.getPlaylist(id).then((response) =>

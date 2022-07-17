@@ -1,11 +1,10 @@
 import React from 'react'
-import { useDataLayerValue } from '../Context/DataLayer';
-import { useSpotify_DOA_value } from '../Context/Spotify_DOA';
+import { useDataLayerValue,useSpotifyValue } from '../Context/DataLayer';
 import './CSS/SongItem.css'
 
 const SongItem = ({ track, playSong }) => {
     const [{ }, dispatch] = useDataLayerValue();
-    const { spotify } = useSpotify_DOA_value();
+    const { spotify } = useSpotifyValue();
     // let duration = track.album.duration_ms;
 
     return (

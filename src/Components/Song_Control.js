@@ -1,6 +1,5 @@
 import React from 'react'
-import { useDataLayerValue } from '../Context/DataLayer';
-import { useSpotify_DOA_value } from '../Context/Spotify_DOA';
+import { useDataLayerValue, useSpotifyValue } from '../Context/DataLayer';
 import './CSS/Song_Control.css'
 import PlayCircleFilledIcon from '@mui/icons-material/PlayCircleFilled';
 import FavoriteIcon from '@mui/icons-material/FavoriteBorderOutlined';
@@ -8,7 +7,7 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
 const Song_Control = () => {
   const [{ user, token, playlists, discover_weekly }, dispatch] = useDataLayerValue();
-  const { spotify } = useSpotify_DOA_value();
+  const { spotify } = useSpotifyValue();
 
   const playPlaylist = (id) => {
     spotify

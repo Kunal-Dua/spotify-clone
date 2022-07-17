@@ -2,13 +2,12 @@ import React from 'react'
 import Footer from './Footer'
 import Sidebar from './Sidebar'
 import Body from "./Body";
-import { useDataLayerValue } from '../Context/DataLayer';
-import { useSpotify_DOA_value } from '../Context/Spotify_DOA';
+import { useDataLayerValue,useSpotifyValue} from '../Context/DataLayer';
 import './CSS/Player.css'
 
 const Player = () => {
   const [{ discover_weekly, item, playing }, dispatch] = useDataLayerValue();
-  const { spotify } = useSpotify_DOA_value();
+  const { spotify } = useSpotifyValue();
 
   const playSong = (id) => {
     spotify.play({

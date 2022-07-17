@@ -3,12 +3,11 @@ import './App.css';
 import Login from './Components/Login';
 import Player from './Components/Player';
 import { getTokenFromUrl } from './Spotify API/spotify_login_url';
-import { useDataLayerValue } from './Context/DataLayer';
-import { useSpotify_DOA_value } from './Context/Spotify_DOA';
+import { useDataLayerValue,useSpotifyValue } from './Context/DataLayer';
 
 function App() {
   const [{ user, token, playlists, discover_weekly, item }, dispatch] = useDataLayerValue();
-  const { spotify } = useSpotify_DOA_value();
+  const { spotify } = useSpotifyValue();
 
   useEffect(() => {
     const hash = getTokenFromUrl();

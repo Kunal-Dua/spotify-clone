@@ -11,13 +11,12 @@ import Grid from '@mui/material/Grid';
 import PlaylistPlayIcon from '@mui/icons-material/PlaylistPlay';
 import VolumeDownIcon from '@mui/icons-material/VolumeDown';
 import FavoriteIcon from '@mui/icons-material/FavoriteBorderOutlined';
-import { useDataLayerValue } from '../Context/DataLayer';
-import { useSpotify_DOA_value } from '../Context/Spotify_DOA';
+import { useDataLayerValue ,useSpotifyValue} from '../Context/DataLayer';
 
 
 const Footer = ({ playSong }) => {
   const [{ item, playing }, dispatch] = useDataLayerValue();
-  const { spotify } = useSpotify_DOA_value();
+  const { spotify } = useSpotifyValue();
 
   useEffect(() => {
     spotify.getMyCurrentPlaybackState().then((r) => {

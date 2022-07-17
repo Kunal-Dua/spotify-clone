@@ -1,6 +1,5 @@
 import React from 'react'
 import { useDataLayerValue } from '../Context/DataLayer';
-import weekly_banner from '../img/spotify song img.jpeg'
 import './CSS/Banner.css'
 
 const Banner = () => {
@@ -8,7 +7,6 @@ const Banner = () => {
   let type = discover_weekly?.type;
   let name = discover_weekly?.name;
   let description = discover_weekly?.description;
-  // let cover = discover_weekly?.images[0].url;
 
   return (
     <div className='Banner'>

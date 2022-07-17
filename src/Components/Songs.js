@@ -1,7 +1,6 @@
 import React from 'react'
 import SongItem from './SongItem'
 import { useDataLayerValue } from '../Context/DataLayer';
-import { useSpotify_DOA_value } from '../Context/Spotify_DOA';
 import './CSS/Songs.css'
 
 
