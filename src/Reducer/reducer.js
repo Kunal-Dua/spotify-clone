@@ -2,10 +2,11 @@ export const initialState = {
     user: null,
     id: null,
     playlists: [],
-    follows_playlist:false,
+    follows_playlist: false,
     currentPlaylistID: "37i9dQZF1DX14CbVHtvHRB",
     playing: false,
     item: null,
+    volume: 70,
     discover_weekly: null,
     // FIXME: Change token to null after development
     token: null
@@ -54,10 +55,15 @@ const reducer = (state, action) => {
                 ...state,
                 currentPlaylistID: action.currentPlaylistID
             }
-            case 'FOLLOWS_PLAYLIST':
+        case 'FOLLOWS_PLAYLIST':
             return {
                 ...state,
                 follows_playlist: action.follows_playlist
+            }
+        case 'SET_VOLUME':
+            return {
+                ...state,
+                volume: action.volume
             }
         default:
             return state;

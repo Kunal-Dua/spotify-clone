@@ -11,11 +11,12 @@ import Grid from '@mui/material/Grid';
 import PlaylistPlayIcon from '@mui/icons-material/PlaylistPlay';
 import VolumeDownIcon from '@mui/icons-material/VolumeDown';
 import FavoriteIcon from '@mui/icons-material/FavoriteBorderOutlined';
-import { useDataLayerValue ,useSpotifyValue} from '../Context/DataLayer';
+import VolumeOffIcon from '@mui/icons-material/VolumeOff';
+import { useDataLayerValue, useSpotifyValue } from '../Context/DataLayer';
 
 
 const Footer = ({ playSong }) => {
-  const [{ item, playing }, dispatch] = useDataLayerValue();
+  const [{ item, playing, volume }, dispatch] = useDataLayerValue();
   const { spotify } = useSpotifyValue();
 
   useEffect(() => {
@@ -81,6 +82,29 @@ const Footer = ({ playSong }) => {
       });
     });
   };
+
+  const volumeChange = () => {
+    dispatch({
+      type:'SET_VOLUME',
+      volume:0
+    })
+    spotify.setVolume(0);
+  }
+  const volumeMute = () => {
+    dispatch({
+      type:'SET_VOLUME',
+      volume:70
+    })
+    spotify.setVolume(70);
+  }
+  const handleChange=(event, newValue)=>{
+    dispatch({
+      type:'SET_VOLUME',
+      volume:newValue
+    })
+    spotify.setVolume(newValue);
+  }
+
   return (
     <div className='footer'>
 
@@ -104,10 +128,10 @@ const Footer = ({ playSong }) => {
 
       <div className="footer_center">
         <div>
-          <ShuffleIcon className='footer_green' fontSize='medium'/>
+          <ShuffleIcon className='footer_green' fontSize='medium' />
         </div>
         <div onClick={skipPrevious}>
-          <SkipPreviousIcon className='footer_icon' fontSize='medium'/>
+          <SkipPreviousIcon className='footer_icon' fontSize='medium' />
         </div>
 
         {!playing ? (
@@ -120,10 +144,10 @@ const Footer = ({ playSong }) => {
         }
 
         <div onClick={skipNext}>
-          <SkipNextIcon className='footer_icon' fontSize='medium'/>
+          <SkipNextIcon className='footer_icon' fontSize='medium' />
         </div>
         <div>
-          <RepeatIcon className='footer_green' fontSize='medium'/>
+          <RepeatIcon className='footer_green' fontSize='medium' />
         </div>
       </div>
 
@@ -133,10 +157,14 @@ const Footer = ({ playSong }) => {
             <PlaylistPlayIcon />
           </Grid>
           <Grid item>
-            <VolumeDownIcon />
+            {volume === 0 ?
+              <VolumeOffIcon onClick={volumeMute} />
+              :
+              <VolumeDownIcon onClick={volumeChange} />
+            }
           </Grid>
           <Grid item xs>
-            <Slider className="footer_slider footer_volume_slider" defaultValue={70} />
+            <Slider className="footer_slider footer_volume_slider" defaultValue={70} aria-label="Volume" value={volume} onChange={handleChange}/>
           </Grid>
         </Grid>
       </div>

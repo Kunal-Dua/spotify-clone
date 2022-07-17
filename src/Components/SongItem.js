@@ -5,8 +5,8 @@ import './CSS/SongItem.css'
 const SongItem = ({ track, playSong }) => {
     const [{ }, dispatch] = useDataLayerValue();
     const { spotify } = useSpotifyValue();
-    let duration = track.album.duration_ms;
-    console.log(duration);
+    // let duration = track.album.duration_ms;
+    // console.log(duration);
     return (
         <div className='SongItem' onClick={() => playSong(track.id)}>
 

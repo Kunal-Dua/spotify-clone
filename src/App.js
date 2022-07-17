@@ -55,7 +55,7 @@ function App() {
       // );
     };
 
-    // spotify.setVolume(70);
+    spotify.setVolume(70);
 
   }, [])
   
@@ -64,7 +64,7 @@ function App() {
   // console.log(playlists);
   // console.log(currentPlaylistID);
   // console.log(discover_weekly);
-  console.log(follows_playlist);
+  // console.log(follows_playlist);
 
   return (
     <div className="App">
