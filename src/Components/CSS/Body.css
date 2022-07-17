@@ -4,10 +4,9 @@
     color: white;
     padding: 5px;
     background: linear-gradient(rgb(91, 87, 115), rgba(0, 0, 0, 1));
-    overflow-y: overlay;
-    height: 100%;
-    width: 100vw;
-    /* height: 100vh; */
+    overflow-y: auto;
+    height: 120vh;
+    width: fit-content;
 }
 
 .body_content {
@@ -28,6 +27,6 @@
     flex: 0.5;
 }
 
-.Song_nav{
-flex:0.1;
+.Song_nav {
+    flex: 0.1;
 }

@@ -1,5 +1,6 @@
 .player{
     display: flex;
+    background-color: black;
 }
 .player_body{
     display: flex;

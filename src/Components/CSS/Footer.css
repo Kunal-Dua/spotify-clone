@@ -13,6 +13,7 @@
     height: 60px;
     object-fit: contain;
     margin-right: 10px;
+    width: 60px;
 }
 
 .footer_left {
@@ -24,18 +25,20 @@
 
 .footer_left_song_info {
     align-items: center;
-    height: 100%;
-    font-size: 13px;
+    max-height: fit-content;
     margin: 0px 15px;
+    min-width: auto;
+    max-width: fit-content;
 }
 
-.footer_left_song_info p {
+.footer_left_song_info> h4 ,p{
     padding: 0px;
     margin: 0px;
+    font-size: 13px;
 }
 
 .footer_left_curr_song_favorite {
-    margin: 0px 25px;
+    margin: 0px 15px;
 }
 
 .footer_center {
@@ -48,15 +51,16 @@
     max-width: 400px;
 }
 
+.filled_icon:hover {
+    transition: transform 0.2s ease-in-out;
+    transform: scale(1.2) !important;
+}
+
 .footer_right * .MuiSlider-root {
     color: white;
 }
 
-.footer_right * .MuiSlider-root :hover {
-    color: #1DB954;
-}
-
-.footer_right * .MuiSlider-dragging {
+.footer_right * .MuiSlider-root:hover {
     color: #1DB954;
 }
 

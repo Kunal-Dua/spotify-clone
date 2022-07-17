@@ -6,7 +6,7 @@ import { getTokenFromUrl } from './Spotify API/spotify_login_url';
 import { useDataLayerValue, useSpotifyValue } from './Context/DataLayer';
 
 function App() {
-  const [{ user, token, playlists, discover_weekly, item, id }, dispatch] = useDataLayerValue();
+  const [{ user, token, playlists, discover_weekly, item, id, currentPlaylistID, follows_playlist }, dispatch] = useDataLayerValue();
   const { spotify } = useSpotifyValue();
 
   useEffect(() => {
@@ -46,17 +46,25 @@ function App() {
           id: response.id
         })
       );
+
+      // spotify.areFollowingPlaylist(currentPlaylistID, currentPlaylistID).then((response) =>
+      //   dispatch({
+      //     type:"FOLLOWS_PLAYLIST",
+      //     follows_playlist: response
+      //   })
+      // );
     };
 
-    spotify.setVolume(100);
+    // spotify.setVolume(70);
 
   }, [])
   
-  // console.log(user);
+  // console.log(id);
   // console.log(token);
   // console.log(playlists);
-  console.log(item);
+  // console.log(currentPlaylistID);
   // console.log(discover_weekly);
+  console.log(follows_playlist);
 
   return (
     <div className="App">

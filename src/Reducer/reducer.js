@@ -1,13 +1,14 @@
 export const initialState = {
     user: null,
-    id:null,
+    id: null,
     playlists: [],
+    follows_playlist:false,
+    currentPlaylistID: "37i9dQZF1DX14CbVHtvHRB",
     playing: false,
     item: null,
     discover_weekly: null,
     // FIXME: Change token to null after development
     token: null
-    // token:"BQAT2hnnmJ1VL1zB3iRic8WCIVfTppRA6aZfT5cc6sK0-H0FMr5qy25s2FkESgyem4u0Ixviy3GaN3_NfUrVPG2lb1iMs8geTriOZr3VJhNgyGB-AhimzfnSFM8ALyni0F0mUYkfS2_sLJvNGoF6eCoQKeU6RCq7rvreckVzxL7hlBvy1qh_agSux2d1bXBMX3BxZ4gwqtvp6tOnF_F0PVbmJvNJTb_lsvv_HJRMxNrNjiL4zkH1rdkFR73jfDHVYe-dYcsvk-KAfUKAC6gKwtDN-ac"
 }
 
 const reducer = (state, action) => {
@@ -47,6 +48,16 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 id: action.id
+            }
+        case 'SET_CURRENT_PLAYLIST_ID':
+            return {
+                ...state,
+                currentPlaylistID: action.currentPlaylistID
+            }
+            case 'FOLLOWS_PLAYLIST':
+            return {
+                ...state,
+                follows_playlist: action.follows_playlist
             }
         default:
             return state;

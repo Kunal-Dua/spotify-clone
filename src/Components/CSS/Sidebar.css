@@ -22,13 +22,15 @@
     margin: 10px auto; 
     align-items: center;
     padding-left: 20px;
+    margin-bottom: 1px;
 }
 
 .sidebar hr{
     width: 90%;
-    margin-top: 0px;
+    margin-top: 2px;
+    margin-bottom: 5px;
 }
 
 .playlist_options{
-    margin-left: 20px;;
+    margin-left: 20px;
 }

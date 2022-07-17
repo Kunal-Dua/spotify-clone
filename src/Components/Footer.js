@@ -104,26 +104,26 @@ const Footer = ({ playSong }) => {
 
       <div className="footer_center">
         <div>
-          <ShuffleIcon className='footer_green' />
+          <ShuffleIcon className='footer_green' fontSize='medium'/>
         </div>
         <div onClick={skipPrevious}>
-          <SkipPreviousIcon className='footer_icon' />
+          <SkipPreviousIcon className='footer_icon' fontSize='medium'/>
         </div>
 
         {!playing ? (
           <div onClick={handlePlayPause} >
-            <PlayCircleFilledIcon fontSize='large' className='footer_icon' />
+            <PlayCircleFilledIcon fontSize='large' className='footer_icon filled_icon' />
           </div>) :
           <div onClick={handlePlayPause} >
-            <PauseCircleFilledIcon fontSize='large' className='footer_icon' />
+            <PauseCircleFilledIcon fontSize='large' className='footer_icon filled_icon' />
           </div>
         }
 
         <div onClick={skipNext}>
-          <SkipNextIcon className='footer_icon' />
+          <SkipNextIcon className='footer_icon' fontSize='medium'/>
         </div>
         <div>
-          <RepeatIcon className='footer_green' />
+          <RepeatIcon className='footer_green' fontSize='medium'/>
         </div>
       </div>
 
