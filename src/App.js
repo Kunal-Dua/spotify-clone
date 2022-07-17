@@ -46,25 +46,18 @@ function App() {
           id: response.id
         })
       );
-
-      // spotify.areFollowingPlaylist(currentPlaylistID, currentPlaylistID).then((response) =>
-      //   dispatch({
-      //     type:"FOLLOWS_PLAYLIST",
-      //     follows_playlist: response
-      //   })
-      // );
     };
 
     spotify.setVolume(70);
 
   }, [])
-  
-  // console.log(id);
-  // console.log(token);
+
+  console.log(id);
+  console.log(token);
   console.log(playlists);
-  // console.log(currentPlaylistID);
+  console.log(currentPlaylistID);
   // console.log(discover_weekly);
-  // console.log(follows_playlist);
+  console.log(follows_playlist);
 
   return (
     <div className="App">

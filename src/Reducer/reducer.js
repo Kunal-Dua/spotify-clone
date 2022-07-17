@@ -3,12 +3,11 @@ export const initialState = {
     id: null,
     playlists: [],
     follows_playlist: false,
-    currentPlaylistID: "37i9dQZF1DX14CbVHtvHRB",
+    currentPlaylistID: "3cEYpjA9oz9GiPac4AsH4n",
     playing: false,
     item: null,
     volume: 70,
     discover_weekly: null,
-    // FIXME: Change token to null after development
     token: null
 }
 

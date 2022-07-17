@@ -1,5 +1,6 @@
 const endPoint = "https://accounts.spotify.com/authorize";
-const redirect_uri = "http://localhost:3000";
+// const redirect_uri = "http://localhost:3000"; //for loacl host
+const redirect_uri = "https://spotify-clone-3666b.web.app";
 const client_id = 'b49adde5dde446e8ac28f4691742331a';
 const scope = [
     "user-modify-playback-state",
