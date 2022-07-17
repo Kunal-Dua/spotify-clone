@@ -1,15 +1,19 @@
 import React from 'react'
+import { useDataLayerValue } from '../Context/DataLayer';
+import { useSpotify_DOA_value } from '../Context/Spotify_DOA';
 import './CSS/SongItem.css'
 
-const SongItem = ({ track}) => {
+const SongItem = ({ track, playSong }) => {
+    const [{ }, dispatch] = useDataLayerValue();
+    const { spotify } = useSpotify_DOA_value();
     // let duration = track.album.duration_ms;
 
     return (
-        <div className='SongItem'>
+        <div className='SongItem' onClick={() => playSong(track.id)}>
 
             <div className="content_box1">
                 <h4 className="song_num">#</h4>
-                <img className="song_img" src={track.album.images[2].url}/>
+                <img className="song_img" src={track.album.images[2].url} />
                 <div className="song_title">
                     <h4>{track.name}</h4>
                     <p>

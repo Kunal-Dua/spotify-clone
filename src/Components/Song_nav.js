@@ -1,6 +1,7 @@
 import React from 'react'
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import './CSS/Song_nav.css'
+
 const Song_nav = () => {
     return (
         <div className='song_nav'>

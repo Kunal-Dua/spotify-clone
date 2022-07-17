@@ -3,11 +3,8 @@ import './App.css';
 import Login from './Components/Login';
 import Player from './Components/Player';
 import { getTokenFromUrl } from './Spotify API/spotify_login_url';
-// import SpotifyWebApiJs from 'spotify-web-api-js';
 import { useDataLayerValue } from './Context/DataLayer';
 import { useSpotify_DOA_value } from './Context/Spotify_DOA';
-
-// const spotify = new SpotifyWebApiJs();
 
 function App() {
   const [{ user, token, playlists, discover_weekly }, dispatch] = useDataLayerValue();
@@ -38,7 +35,7 @@ function App() {
         })
       });
 
-      spotify.getPlaylist('37i9dQZF1DWXtlo6ENS92N').then((response) =>
+      spotify.getPlaylist('37i9dQZF1DX14CbVHtvHRB').then((response) =>
         dispatch({
           type: 'SET_DISCOVER_WEEKLY',
           discover_weekly: response
@@ -46,11 +43,15 @@ function App() {
       )
     };
 
+    spotify.setVolume(70);
+
   }, [])
 
   // console.log(user);
+  // console.log(token);
   // console.log(playlists);
   // console.log(discover_weekly);
+
 
   return (
     <div className="App">
