@@ -109,7 +109,7 @@ function App() {
     });
   }, [currentPlaylistID])
   
-
+  // console.log(item);
   // console.log(curr_playback_state);
   // console.log(id);
   // console.log(progress);

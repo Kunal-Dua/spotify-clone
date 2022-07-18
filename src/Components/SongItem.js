@@ -3,10 +3,10 @@ import { useDataLayerValue, useSpotifyValue } from '../Context/DataLayer';
 import './CSS/SongItem.css'
 
 const SongItem = ({ track, playSong ,index}) => {
-    const [{ }, dispatch] = useDataLayerValue();
+    const [{ duration}, dispatch] = useDataLayerValue();
     const { spotify } = useSpotifyValue();
-    // let duration = track.album.duration_ms;
-    // console.log(duration);
+    let duration_song=parseFloat(track.duration_ms/60000).toFixed(2);
+    console.log(duration_song);
     return (
         <div className='SongItem' onClick={() => playSong(track.id)}>
 
@@ -23,7 +23,7 @@ const SongItem = ({ track, playSong ,index}) => {
 
             <p className="song_album">{track.album.name}</p>
             <p className="song_added">{track.album.release_date}</p>
-            <p className="song_duration">4:23</p>
+            <p className="song_duration">{duration_song}</p>
         </div>
     )
 }

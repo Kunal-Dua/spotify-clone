@@ -18,6 +18,7 @@ const Player = () => {
           dispatch({
             type: "SET_ITEM",
             item: r.item,
+            duration:r.item.duration_ms
           });
           dispatch({
             type: "SET_PLAYING",
