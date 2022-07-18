@@ -6,7 +6,7 @@ import { getTokenFromUrl } from './Spotify API/spotify_login_url';
 import { useDataLayerValue, useSpotifyValue } from './Context/DataLayer';
 
 function App() {
-  const [{ user, token, playlists, discover_weekly, item, id, currentPlaylistID, follows_playlist }, dispatch] = useDataLayerValue();
+  const [{ user, token, playlists, discover_weekly, item, id, currentPlaylistID, follows_playlist, curr_playback_state }, dispatch] = useDataLayerValue();
   const { spotify } = useSpotifyValue();
 
   useEffect(() => {
@@ -46,18 +46,34 @@ function App() {
           id: response.id
         })
       );
-    };
 
+      // spotify.getAlbums(['5U4W9E5WsYb2jUQWePT8Xm', '3KyVcddATClQKIdtaap4bV'])
+      //   .then(function (data) {
+      //     console.log('Albums information', data.body);
+      //   }, function (err) {
+      //     console.error(err);
+      //   });
+
+      spotify.getMyCurrentPlaybackState().then((playlist) => {
+        console.log(playlist);
+        dispatch({
+          type: "GET_CURRENT_PLAYBACK_STATE",
+          curr_playback_state: playlist
+        })
+      });
+
+    };
     spotify.setVolume(70);
 
   }, [])
 
-  console.log(id);
-  console.log(token);
-  console.log(playlists);
-  console.log(currentPlaylistID);
+  console.log(curr_playback_state);
+  // console.log(id);
+  // console.log(token);
+  // console.log(playlists);
+  // console.log(currentPlaylistID);
   // console.log(discover_weekly);
-  console.log(follows_playlist);
+  // console.log(follows_playlist);
 
   return (
     <div className="App">

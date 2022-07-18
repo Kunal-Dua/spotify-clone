@@ -3,6 +3,7 @@ export const initialState = {
     id: null,
     playlists: [],
     follows_playlist: false,
+    curr_playback_state:null,
     currentPlaylistID: "3cEYpjA9oz9GiPac4AsH4n",
     playing: false,
     item: null,
@@ -63,6 +64,11 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 volume: action.volume
+            }
+            case 'GET_CURRENT_PLAYBACK_STATE':
+            return {
+                ...state,
+                curr_playback_state: action.curr_playback_state
             }
         default:
             return state;
