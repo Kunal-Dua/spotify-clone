@@ -1,3 +1,13 @@
+# Spotify Clone using Spotify Web API
+
+# Description
+
+Spotify Clone is a web based application with reactjs it utilises spotify web API to 
+authenticate users.All requests to Web API require authentication. This is achieved by sending a valid OAuth access token in the request header and scopes.After authentication user can access playlists listen to songs from this app, control song playback,volume,follow and unfollow playlist and have access to followed playlist.
+
+# Authentication
+All requests to Web API require authentication. This is achieved by sending a valid OAuth access token in the request header. For more information about these authentication methods, see the Web API Authorization Guide.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
