@@ -10,7 +10,7 @@ const Songs = ({playSong}) => {
   return (
     <div className='songs' >
       {discover_weekly?.tracks.items.map((item,index) => (
-        <SongItem track={item.track} index={index} playSong={playSong}/>
+        <SongItem key={item.track.id} track={item.track} index={index} playSong={playSong}/>
       ))}
     </div>
   )
