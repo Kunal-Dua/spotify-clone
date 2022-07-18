@@ -6,7 +6,6 @@ const SongItem = ({ track, playSong ,index}) => {
     const [{ duration}, dispatch] = useDataLayerValue();
     const { spotify } = useSpotifyValue();
     let duration_song=parseFloat(track.duration_ms/60000).toFixed(2);
-    console.log(duration_song);
     return (
         <div className='SongItem' onClick={() => playSong(track.id)}>
 

@@ -55,7 +55,6 @@ function App() {
       //   });
 
       spotify.getMyCurrentPlaybackState().then((playlist) => {
-        console.log(playlist);
         dispatch({
           type: "GET_CURRENT_PLAYBACK_STATE",
           curr_playback_state: playlist,
@@ -97,7 +96,6 @@ function App() {
     }
 
     spotify.getMyCurrentPlaybackState().then((playlist) => {
-      console.log(playlist);
       dispatch({
         type: "GET_CURRENT_PLAYBACK_STATE",
         curr_playback_state: playlist,
