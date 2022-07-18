@@ -15,8 +15,8 @@ import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 import { useDataLayerValue, useSpotifyValue } from '../Context/DataLayer';
 
 
-const Footer = ({ playSong }) => {
-  const [{ item, playing, volume, curr_playback_state,duration,shuffle_state,progress }, dispatch] = useDataLayerValue();
+const Footer = () => {
+  const [{ item, playing, volume, duration,progress }, dispatch] = useDataLayerValue();
   const { spotify } = useSpotifyValue();
 
   useEffect(() => {
@@ -103,10 +103,6 @@ const Footer = ({ playSong }) => {
       volume: newValue
     })
     spotify.setVolume(newValue);
-  }
-
-  const progress_time=()=>{
-    return progress;
   }
 
   return (

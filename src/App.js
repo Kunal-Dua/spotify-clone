@@ -6,7 +6,7 @@ import { getTokenFromUrl } from './Spotify API/spotify_login_url';
 import { useDataLayerValue, useSpotifyValue } from './Context/DataLayer';
 
 function App() {
-  const [{ user, token, playlists, discover_weekly, item, id, currentPlaylistID, follows_playlist, curr_playback_state ,duration,shuffle_state,playing,progress}, dispatch] = useDataLayerValue();
+  const [{ user, token, playlists, discover_weekly, item, id, currentPlaylistID, follows_playlist, curr_playback_state, duration, shuffle_state, playing, progress }, dispatch] = useDataLayerValue();
   const { spotify } = useSpotifyValue();
 
   useEffect(() => {
@@ -60,20 +60,55 @@ function App() {
           type: "GET_CURRENT_PLAYBACK_STATE",
           curr_playback_state: playlist,
           duration: playlist.item.duration_ms,
-          shuffle_state:playlist.shuffle_state,
-          playing:playlist.is_playing,
-          progress:playlist.progress_ms
+          shuffle_state: playlist.shuffle_state,
+          playing: playlist.is_playing,
+          progress: playlist.progress_ms
         })
-        // dispatch({
-        //   type: "PLAYBACK_DURATION",
-        //   duration: playlist.item.duration_ms
-        // })
       });
+
+      {
+        id ?
+          spotify.areFollowingPlaylist(currentPlaylistID, [id]).then((res) => {
+            console.log(res);
+            dispatch({
+              type: "FOLLOWS_PLAYLIST",
+              follows_playlist: res[0],
+            });
+          })
+          : console.log()
+      }
 
     };
     // spotify.setVolume(70);
 
   }, [])
+
+  useEffect(() => {
+    {
+      id ?
+        spotify.areFollowingPlaylist(currentPlaylistID, [id]).then((res) => {
+          console.log(res);
+          dispatch({
+            type: "FOLLOWS_PLAYLIST",
+            follows_playlist: res[0],
+          });
+        })
+        : console.log()
+    }
+
+    spotify.getMyCurrentPlaybackState().then((playlist) => {
+      console.log(playlist);
+      dispatch({
+        type: "GET_CURRENT_PLAYBACK_STATE",
+        curr_playback_state: playlist,
+        duration: playlist.item.duration_ms,
+        shuffle_state: playlist.shuffle_state,
+        playing: playlist.is_playing,
+        progress: playlist.progress_ms
+      })
+    });
+  }, [currentPlaylistID])
+  
 
   // console.log(curr_playback_state);
   // console.log(id);

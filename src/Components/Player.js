@@ -6,7 +6,7 @@ import { useDataLayerValue,useSpotifyValue} from '../Context/DataLayer';
 import './CSS/Player.css'
 
 const Player = () => {
-  const [{ discover_weekly, item, playing }, dispatch] = useDataLayerValue();
+  const [{ }, dispatch] = useDataLayerValue();
   const { spotify } = useSpotifyValue();
 
   const playSong = (id) => {
@@ -33,7 +33,7 @@ const Player = () => {
         <Sidebar />
         <Body playSong={playSong} />
       </div>
-      <Footer playSong={playSong} />
+      <Footer />
     </div>
   )
 }

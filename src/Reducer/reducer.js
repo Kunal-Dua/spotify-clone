@@ -4,7 +4,7 @@ export const initialState = {
     playlists: [],
     follows_playlist: false,
     curr_playback_state:null,
-    currentPlaylistID: "3cEYpjA9oz9GiPac4AsH4n",
+    currentPlaylistID: "37i9dQZF1DX14CbVHtvHRB",
     duration:null,
     progress:null,
     playing: false,
@@ -16,7 +16,7 @@ export const initialState = {
 }
 
 const reducer = (state, action) => {
-    console.log(action);
+    // console.log(action);
     switch (action.type) {
         case 'SET_TOKEN':
             return {
