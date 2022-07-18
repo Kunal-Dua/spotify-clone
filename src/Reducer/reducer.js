@@ -5,7 +5,10 @@ export const initialState = {
     follows_playlist: false,
     curr_playback_state:null,
     currentPlaylistID: "3cEYpjA9oz9GiPac4AsH4n",
+    duration:null,
+    progress:null,
     playing: false,
+    shuffle_state:null,
     item: null,
     volume: 70,
     discover_weekly: null,
@@ -68,7 +71,16 @@ const reducer = (state, action) => {
             case 'GET_CURRENT_PLAYBACK_STATE':
             return {
                 ...state,
-                curr_playback_state: action.curr_playback_state
+                curr_playback_state: action.curr_playback_state,
+                duration:action.duration,
+                shuffle_state:action.shuffle_state,
+                playing:action.is_playing,
+                progress:action.progress
+            }
+            case 'PLAYBACK_DURATION':
+            return {
+                ...state,
+                duration:action.duration
             }
         default:
             return state;

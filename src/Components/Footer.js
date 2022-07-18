@@ -16,7 +16,7 @@ import { useDataLayerValue, useSpotifyValue } from '../Context/DataLayer';
 
 
 const Footer = ({ playSong }) => {
-  const [{ item, playing, volume }, dispatch] = useDataLayerValue();
+  const [{ item, playing, volume, curr_playback_state,duration,shuffle_state,progress }, dispatch] = useDataLayerValue();
   const { spotify } = useSpotifyValue();
 
   useEffect(() => {
@@ -85,24 +85,28 @@ const Footer = ({ playSong }) => {
 
   const volumeChange = () => {
     dispatch({
-      type:'SET_VOLUME',
-      volume:0
+      type: 'SET_VOLUME',
+      volume: 0
     })
     spotify.setVolume(0);
   }
   const volumeMute = () => {
     dispatch({
-      type:'SET_VOLUME',
-      volume:70
+      type: 'SET_VOLUME',
+      volume: 70
     })
     spotify.setVolume(70);
   }
-  const handleChange=(event, newValue)=>{
+  const handleChange = (event, newValue) => {
     dispatch({
-      type:'SET_VOLUME',
-      volume:newValue
+      type: 'SET_VOLUME',
+      volume: newValue
     })
     spotify.setVolume(newValue);
+  }
+
+  const progress_time=()=>{
+    return progress;
   }
 
   return (
@@ -127,29 +131,24 @@ const Footer = ({ playSong }) => {
       </div>
 
       <div className="footer_center">
-        <div>
+        <div className="playback_icons">
           <ShuffleIcon className='footer_green' fontSize='medium' />
-        </div>
-        <div onClick={skipPrevious}>
-          <SkipPreviousIcon className='footer_icon' fontSize='medium' />
-        </div>
+          <SkipPreviousIcon className='footer_icon' onClick={skipPrevious} fontSize='medium' />
 
-        {!playing ? (
-          <div onClick={handlePlayPause} >
-            <PlayCircleFilledIcon fontSize='large' className='footer_icon filled_icon' />
-          </div>) :
-          <div onClick={handlePlayPause} >
-            <PauseCircleFilledIcon fontSize='large' className='footer_icon filled_icon' />
-          </div>
-        }
+          {!playing ? (
+            <PlayCircleFilledIcon fontSize='large' className='footer_icon filled_icon' onClick={handlePlayPause} />
+          ) :
+            <PauseCircleFilledIcon fontSize='large' className='footer_icon filled_icon' onClick={handlePlayPause} />
+          }
 
-        <div onClick={skipNext}>
-          <SkipNextIcon className='footer_icon' fontSize='medium' />
-        </div>
-        <div>
+          <SkipNextIcon className='footer_icon' fontSize='medium' onClick={skipNext} />
           <RepeatIcon className='footer_green' fontSize='medium' />
         </div>
+        <div className='playback_slider'>
+          <Slider aria-label="Playback" size="small" defaultValue={0} min={0} max={duration} value={progress}/>
+        </div>
       </div>
+
 
       <div className="footer_right">
         <Grid container spacing={2}>
@@ -164,7 +163,7 @@ const Footer = ({ playSong }) => {
             }
           </Grid>
           <Grid item xs>
-            <Slider className="footer_slider footer_volume_slider" defaultValue={70} aria-label="Volume" value={volume} onChange={handleChange}/>
+            <Slider className="footer_slider footer_volume_slider" defaultValue={70} aria-label="Volume" value={volume} onChange={handleChange} />
           </Grid>
         </Grid>
       </div>
