@@ -72,8 +72,6 @@ function WebPlayback(props) {
             console.error(err);
           }
         );
-
-        // spotify.transferMyPlayback()
       });
 
       player.addListener("not_ready", ({ device_id }) => {

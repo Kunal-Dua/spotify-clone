@@ -120,13 +120,13 @@ function App() {
       dispatch({
         type: "GET_CURRENT_PLAYBACK_STATE",
         curr_playback_state: playlist,
-        duration: playlist.item.duration_ms,
+        duration: playlist.item?.duration_ms,
         shuffle_state: playlist.shuffle_state,
         playing: playlist.is_playing,
         progress: playlist.progress_ms,
       });
     });
-  }, [currentPlaylistID,device_id]);
+  }, [currentPlaylistID]);
 
   useEffect(() => {
     // console.log("in all device ids useEffect");
@@ -138,6 +138,29 @@ function App() {
         console.log(err);
       }
     );
+
+    {
+      id
+        ? spotify.areFollowingPlaylist(currentPlaylistID, [id]).then((res) => {
+            console.log(res);
+            dispatch({
+              type: "FOLLOWS_PLAYLIST",
+              follows_playlist: res[0],
+            });
+          })
+        : console.log();
+    }
+
+    spotify.getMyCurrentPlaybackState().then((playlist) => {
+      dispatch({
+        type: "GET_CURRENT_PLAYBACK_STATE",
+        curr_playback_state: playlist,
+        duration: playlist.item?.duration_ms,
+        shuffle_state: playlist.shuffle_state,
+        playing: playlist.is_playing,
+        progress: playlist.progress_ms,
+      });
+    });
   }, [device_id]);
 
   // console.log(item);
