@@ -14,7 +14,15 @@ const Player = () => {
   const playSong = (id) => {
     spotify.play({
       uris: [`spotify:track:${id}`],
-    })
+    }).then(
+      function(data){
+        console.log(data);
+      },
+      function(err){
+        alert("Spotify Premium required to play songs");
+        console.error(err)
+      }
+    )
       .then((res) => {
         spotify.getMyCurrentPlayingTrack().then((r) => {
           set_Item(r.item);
