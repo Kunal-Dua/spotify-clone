@@ -10,7 +10,10 @@ const scope = [
     "playlist-read-collaborative",
     "playlist-modify-public",
     "playlist-read-private",
-    "playlist-modify-private"
+    "playlist-modify-private",
+    'streaming',
+    'user-read-email',
+    'user-read-private',
 ]
 
 export const getTokenFromUrl = () => {
