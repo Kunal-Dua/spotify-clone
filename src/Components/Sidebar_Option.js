@@ -12,7 +12,6 @@ const Sidebar_Option = ({ title, Icon, id }) => {
                 type: 'SET_DISCOVER_WEEKLY',
                 discover_weekly: response
             }),
-
             //setCurrentPlaylistID
             dispatch({
                 type: 'SET_CURRENT_PLAYLIST_ID',

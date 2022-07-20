@@ -1,4 +1,4 @@
-import React from 'react'
+import React ,{useState}from 'react'
 import Footer from './Footer'
 import Sidebar from './Sidebar'
 import Body from "./Body";
@@ -6,7 +6,9 @@ import { useDataLayerValue,useSpotifyValue} from '../Context/DataLayer';
 import './CSS/Player.css'
 
 const Player = () => {
-  const [{ }, dispatch] = useDataLayerValue();
+  const [{}, dispatch] = useDataLayerValue();
+  const [_item, set_Item] = useState(null);
+  const [_playing, set_Playing] = useState(null);
   const { spotify } = useSpotifyValue();
 
   const playSong = (id) => {
@@ -15,6 +17,7 @@ const Player = () => {
     })
       .then((res) => {
         spotify.getMyCurrentPlayingTrack().then((r) => {
+          set_Item(r.item);
           dispatch({
             type: "SET_ITEM",
             item: r.item,
