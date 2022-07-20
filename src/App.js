@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "./App.css";
 import Login from "./Components/Login";
 import Player from "./Components/Player";
@@ -7,27 +7,8 @@ import { useDataLayerValue, useSpotifyValue } from "./Context/DataLayer";
 import WebPlayback from "./Spotify API/Webplayback";
 
 function App() {
-  const [
-    {
-      user,
-      token,
-      playlists,
-      device_id,
-      discover_weekly,
-      item,
-      id,
-      currentPlaylistID,
-      follows_playlist,
-      curr_playback_state,
-      duration,
-      shuffle_state,
-      playing,
-      progress,
-      all_device_ids,
-      all_device_names,
-    },
-    dispatch,
-  ] = useDataLayerValue();
+  const [{ token, device_id, id, currentPlaylistID }, dispatch] =
+    useDataLayerValue();
   const { spotify } = useSpotifyValue();
 
   useEffect(() => {
@@ -86,25 +67,6 @@ function App() {
         });
       });
 
-      {
-        id
-          ? spotify
-              .areFollowingPlaylist(currentPlaylistID, [id])
-              .then((res) => {
-                console.log(res);
-                dispatch({
-                  type: "FOLLOWS_PLAYLIST",
-                  follows_playlist: res[0],
-                });
-              })
-          : console.log();
-      }
-    }
-    // spotify.setVolume(70);
-  }, []);
-
-  useEffect(() => {
-    {
       id
         ? spotify.areFollowingPlaylist(currentPlaylistID, [id]).then((res) => {
             console.log(res);
@@ -114,7 +76,19 @@ function App() {
             });
           })
         : console.log();
-    }
+    } // eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
+    id
+      ? spotify.areFollowingPlaylist(currentPlaylistID, [id]).then((res) => {
+          console.log(res);
+          dispatch({
+            type: "FOLLOWS_PLAYLIST",
+            follows_playlist: res[0],
+          });
+        })
+      : console.log();
 
     spotify.getMyCurrentPlaybackState().then((playlist) => {
       dispatch({
@@ -125,11 +99,10 @@ function App() {
         playing: playlist.is_playing,
         progress: playlist.progress_ms,
       });
-    });
+    }); // eslint-disable-next-line
   }, [currentPlaylistID]);
 
   useEffect(() => {
-    // console.log("in all device ids useEffect");
     spotify.transferMyPlayback([device_id]).then(
       function (data) {
         console.log(data);
@@ -139,17 +112,15 @@ function App() {
       }
     );
 
-    {
-      id
-        ? spotify.areFollowingPlaylist(currentPlaylistID, [id]).then((res) => {
-            console.log(res);
-            dispatch({
-              type: "FOLLOWS_PLAYLIST",
-              follows_playlist: res[0],
-            });
-          })
-        : console.log();
-    }
+    id
+      ? spotify.areFollowingPlaylist(currentPlaylistID, [id]).then((res) => {
+          console.log(res);
+          dispatch({
+            type: "FOLLOWS_PLAYLIST",
+            follows_playlist: res[0],
+          });
+        })
+      : console.log();
 
     spotify.getMyCurrentPlaybackState().then((playlist) => {
       dispatch({
@@ -160,22 +131,18 @@ function App() {
         playing: playlist.is_playing,
         progress: playlist.progress_ms,
       });
-    });
+    }); // eslint-disable-next-line
   }, [device_id]);
-
-  // console.log(item);
-  // console.log(curr_playback_state);
-  // console.log(id);
-  // console.log(progress);
-  // console.log(playlists);
-  // console.log(currentPlaylistID);
-  // console.log(discover_weekly);
-  // console.log(follows_playlist);
 
   return (
     <div className="App">
-      {token ? <Player spotify={spotify} /> : <Login />}
-      {token ? <WebPlayback token={token} /> : <Login />}
+      {token ? (
+        <>
+          <Player spotify={spotify} /> <WebPlayback token={token} />
+        </>
+      ) : (
+        <Login />
+      )}
     </div>
   );
 }
