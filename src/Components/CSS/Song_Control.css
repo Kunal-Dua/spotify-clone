@@ -1,3 +1,7 @@
+.SongControl{
+    cursor: pointer;
+}
+
 .PlayCircleFilledIcon {
     margin-left: 20px;
     font-size: 70px !important;

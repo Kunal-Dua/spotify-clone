@@ -5,7 +5,12 @@
     margin-left:20px;
     margin-top: 10px;
     margin-bottom: 20px;
+    cursor: pointer;
     /* justify-content: space-between; */
+}
+
+.SongItem:hover{
+    
 }
 
 .c > img{

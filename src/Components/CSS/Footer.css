@@ -39,6 +39,7 @@
 
 .footer_left_curr_song_favorite {
     margin: 0px 15px;
+    cursor: pointer;
 }
 
 .footer_center {
@@ -56,6 +57,7 @@
     justify-content: space-between;
     align-items: center;
     min-width: 200px;
+    cursor: pointer;
 }
 .playback_slider{
     display: flex;
@@ -89,4 +91,8 @@
     color: white;
     align-items: center;
     max-width: 300px;
+}
+
+.footer_right_icon{
+    cursor: pointer;
 }

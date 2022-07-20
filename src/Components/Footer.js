@@ -102,25 +102,49 @@ const Footer = () => {
   };
 
   const volumeChange = () => {
-    dispatch({
-      type: "SET_VOLUME",
-      volume: 0,
-    });
-    spotify.setVolume(0);
+    spotify.setVolume(0).then(
+      function (data) {
+        // console.log(data);
+        dispatch({
+          type: "SET_VOLUME",
+          volume: 0,
+        });
+      },
+      function (err) {
+        alert("Spotify Premium required to mute song");
+        console.log(err);
+      }
+    );
   };
   const volumeMute = () => {
-    dispatch({
-      type: "SET_VOLUME",
-      volume: 70,
-    });
-    spotify.setVolume(70);
+    spotify.setVolume(70).then(
+      function (data) {
+        // console.log(data);
+        dispatch({
+          type: "SET_VOLUME",
+          volume: 70,
+        });
+      },
+      function (err) {
+        alert("Spotify Premium required to change volume");
+        console.log(err);
+      }
+    );
   };
   const handleChange = (event, newValue) => {
-    dispatch({
-      type: "SET_VOLUME",
-      volume: newValue,
-    });
-    spotify.setVolume(newValue);
+    spotify.setVolume(newValue).then(
+      function (data) {
+        // console.log(data);
+        dispatch({
+          type: "SET_VOLUME",
+          volume: newValue,
+        });
+      },
+      function (err) {
+        alert("Spotify Premium required to change volume");
+        console.log(err);
+      }
+    );
   };
 
   return (
@@ -192,13 +216,19 @@ const Footer = () => {
       <div className="footer_right">
         <Grid container spacing={2}>
           <Grid item>
-            <PlaylistPlayIcon />
+            <PlaylistPlayIcon className="footer_right_icon" />
           </Grid>
           <Grid item>
             {volume === 0 ? (
-              <VolumeOffIcon onClick={volumeMute} />
+              <VolumeOffIcon
+                className="footer_right_icon"
+                onClick={volumeMute}
+              />
             ) : (
-              <VolumeDownIcon onClick={volumeChange} />
+              <VolumeDownIcon
+                className="footer_right_icon"
+                onClick={volumeChange}
+              />
             )}
           </Grid>
           <Grid item xs>
